@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: 'tester'
+    env: ruby
+    repo: https://github.com/render-examples/sinatra
+    buildCommand: bundle install
+    startCommand: bundle exec ruby main.rb
+    envVars:
+      - key: TEST
+        fromDatabase:
+          name: test sql2
+          property: connectionString
